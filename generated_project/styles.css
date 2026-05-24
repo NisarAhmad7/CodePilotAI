@@ -1,0 +1,206 @@
+/* Color palette variables */
+:root {
+    --primary: #4a90e2;        /* blue */
+    --secondary: #50e3c2;      /* teal */
+    --accent: #f5a623;         /* orange */
+    --bg: #f0f4f8;            /* light gray */
+    --text: #333333;          /* dark gray */
+    --danger: #e74c3c;        /* red */
+    --border-radius: 8px;
+    --transition: 0.3s ease;
+}
+
+/* Global styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+main {
+    background: var(--bg);
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0 0 1rem 0;
+    text-align: center;
+    color: var(--primary);
+}
+
+/* Form styling */
+#todo-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+    background: #fff;
+    color: var(--text);
+}
+
+#todo-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 5px rgba(245,166,35,0.5);
+}
+
+#todo-form button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#todo-form button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Todo list */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-item .text {
+    flex: 1;
+    margin-right: 0.5rem;
+    word-break: break-word;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--danger);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.2rem;
+    border-radius: 50%;
+}
+
+.delete-btn:hover {
+    background: rgba(231,76,60,0.1);
+    color: var(--danger);
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.filter-btn {
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+    background: var(--accent);
+}
+
+.filter-btn.active-filter {
+    background: var(--primary);
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+/* Hover effect for buttons */
+button {
+    transition: var(--transition);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    main {
+        padding: 1rem;
+    }
+    #todo-form {
+        flex-direction: column;
+    }
+    #todo-form button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    #todo-input {
+        font-size: 0.9rem;
+    }
+    .filter-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
